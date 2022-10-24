@@ -35,24 +35,6 @@ public class MainActivity extends AppCompatActivity {
         Button blank = findViewById(R.id.blank);
         TextView show = findViewById(R.id.show);
 
-        btnSign.setOnClickListener(view -> {
-            if (name.getText().toString().equals("Clown") && password.getText().toString().equals("password")){
-                Toast.makeText(getApplicationContext(), "Вход выполнен", Toast.LENGTH_LONG).show();
-                x.setVisibility(View.INVISIBLE);
-                textSign.setVisibility(View.INVISIBLE);
-                textLogin.setVisibility(View.INVISIBLE);
-                email.setVisibility(View.INVISIBLE);
-                name.setVisibility(View.INVISIBLE);
-                password.setVisibility(View.INVISIBLE);
-                info.setVisibility(View.INVISIBLE);
-                forgot.setVisibility(View.INVISIBLE);
-                blank.setVisibility(View.INVISIBLE);
-                show.setVisibility(View.INVISIBLE);
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "Неправильный пароль или логин", Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
 
