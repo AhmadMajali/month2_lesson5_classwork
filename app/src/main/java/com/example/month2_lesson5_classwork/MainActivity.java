@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         findViews();
-        textWatcher();
+
     }
 
     private void findViews(){
@@ -35,57 +35,27 @@ public class MainActivity extends AppCompatActivity {
         Button blank = findViewById(R.id.blank);
         TextView show = findViewById(R.id.show);
 
+        btnSign.setOnClickListener(view -> {
+            if (name.getText().toString().equals("Clown") && password.getText().toString().equals("password")){
+                Toast.makeText(getApplicationContext(), "Вход выполнен", Toast.LENGTH_LONG).show();
+                x.setVisibility(View.INVISIBLE);
+                textSign.setVisibility(View.INVISIBLE);
+                textLogin.setVisibility(View.INVISIBLE);
+                email.setVisibility(View.INVISIBLE);
+                name.setVisibility(View.INVISIBLE);
+                password.setVisibility(View.INVISIBLE);
+                info.setVisibility(View.INVISIBLE);
+                forgot.setVisibility(View.INVISIBLE);
+                blank.setVisibility(View.INVISIBLE);
+                show.setVisibility(View.INVISIBLE);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Неправильный пароль или логин", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
-    private void textWatcher() {
-        ImageView x = findViewById(R.id.x);
-        TextView textSign = findViewById(R.id.textSign);
-        TextView textLogin = findViewById(R.id.textLogin);
-        EditText email = findViewById(R.id.email);
-        EditText name = findViewById(R.id.name);
-        EditText password = findViewById(R.id.password);
-        TextView info = findViewById(R.id.info);
-        Button btnSign = findViewById(R.id.btnSign);
-        TextView forgot = findViewById(R.id.forgot);
-        Button blank = findViewById(R.id.blank);
-        TextView show = findViewById(R.id.show);
-        TextWatcher watcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                btnSign.setOnClickListener(view -> {
-                            if (name.getText().toString().equals("Clown") && password.getText().toString().equals("password")) {
-                                Toast.makeText(getApplicationContext(), "Вход выполнен", Toast.LENGTH_LONG).show();
-                                x.setVisibility(View.INVISIBLE);
-                                textSign.setVisibility(View.INVISIBLE);
-                                textLogin.setVisibility(View.INVISIBLE);
-                                email.setVisibility(View.INVISIBLE);
-                                name.setVisibility(View.INVISIBLE);
-                                password.setVisibility(View.INVISIBLE);
-                                info.setVisibility(View.INVISIBLE);
-                                forgot.setVisibility(View.INVISIBLE);
-                                blank.setVisibility(View.INVISIBLE);
-                                show.setVisibility(View.INVISIBLE);
-                            }
-
-                            else {
-                                Toast.makeText(getApplicationContext(), "Неправильный пароль или логин", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                );
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        };
-        name.addTextChangedListener(watcher);
-        password.addTextChangedListener(watcher);
-    }
     }
 
 
